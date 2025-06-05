@@ -17,6 +17,8 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
+print("Chave carregada:", OPENROUTER_API_KEY)
+
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def allowed_file(filename):
@@ -27,11 +29,9 @@ def gerar_anuncio_openrouter(produto, estilo, modelo_escolhido):
         return "⚠️ Chave API não configurada. Verifique o arquivo .env"
     
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "HTTP-Referer": request.host_url,
-        "X-Title": "Gerador de Anúncios",
-        "Content-Type": "application/json"
-    }
+    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+    "Content-Type": "application/json"
+}
 
     prompt = f"""
     Crie um texto de anúncio para o produto '{produto}' com as seguintes características:
