@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+defrom flask import Flask, render_template, request, flash
 from werkzeug.utils import secure_filename
 import os
 import requests
@@ -115,5 +115,5 @@ def get_available_models():
         "meta-llama/llama-3-70b-instruct": "Meta Llama 3 70B"
     }
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+   # app.run(debug=True)
